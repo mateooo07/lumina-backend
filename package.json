@@ -1,24 +1,20 @@
 {
   "name": "lumina-backend",
-  "version": "1.0.0",
-  "description": "Backend para Lumina Lámparas e-commerce",
+  "version": "2.0.0",
+  "description": "Backend para Lumina Lámparas e-commerce con WebSockets",
   "main": "src/app.js",
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
-  "keywords": [
-    "express",
-    "api",
-    "ecommerce"
-  ],
+  "keywords": ["express", "api", "ecommerce", "websockets", "handlebars"],
   "author": "Mateo Pavoni",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^8.0.3",
-    "socket.io": "^4.8.1"
+    "express-handlebars": "^7.1.2",
+    "socket.io": "^4.6.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

@@ -23,8 +23,28 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(join(__dirname, 'public')));
 
-// Configurar Handlebars
-app.engine('handlebars', engine());
+// Configurar Handlebars con helpers personalizados
+app.engine('handlebars', engine({
+    helpers: {
+        // Helper para comparar si un número es mayor que otro
+        gt: function(a, b) {
+            return a > b;
+        },
+        // Helper para multiplicar (útil para cálculos)
+        multiply: function(a, b) {
+            return a * b;
+        },
+        // Helper para igualdad estricta
+        eq: function(a, b) {
+            return a === b;
+        },
+        // Helper para comparar menor que
+        lt: function(a, b) {
+            return a < b;
+        }
+    }
+}));
+
 app.set('view engine', 'handlebars');
 app.set('views', join(__dirname, 'views'));
 

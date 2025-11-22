@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Lampara de agua",
+    "description": "Lampara de agua especial para el niño",
+    "code": "000123",
+    "price": 10000,
+    "status": true,
+    "stock": 20,
+    "category": "Niños",
+    "thumbnails": []
+  }
+]
