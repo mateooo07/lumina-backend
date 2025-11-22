@@ -1,0 +1,42 @@
+<div class="content">
+    <h2 style="color: #667eea; margin-bottom: 20px;">Catálogo de Productos</h2>
+    <p style="color: #666; margin-bottom: 20px;">
+        Vista estática - Recarga la página para ver cambios
+    </p>
+
+    {{#if hasProducts}}
+        <div class="products-grid">
+            {{#each products}}
+                <div class="product-card">
+                    <h3>{{this.title}}</h3>
+                    <p>{{this.description}}</p>
+                    <p><strong>Código:</strong> <span class="product-code">{{this.code}}</span></p>
+                    <p class="product-price">${{this.price}}</p>
+                    <p><strong>Categoría:</strong> {{this.category}}</p>
+                    <p>
+                        <strong>Stock:</strong> 
+                        {{#if (gt this.stock 10)}}
+                            <span class="product-stock stock-available">✓ {{this.stock}} unidades</span>
+                        {{else if (gt this.stock 0)}}
+                            <span class="product-stock stock-low">⚠ {{this.stock}} unidades</span>
+                        {{else}}
+                            <span class="product-stock stock-out">✗ Sin stock</span>
+                        {{/if}}
+                    </p>
+                    <p><strong>ID:</strong> {{this.id}}</p>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="empty-state">
+            <h3>No hay productos disponibles</h3>
+            <p>Agrega productos usando la API o desde la vista de tiempo real</p>
+        </div>
+    {{/if}}
+</div>
+
+{{#if error}}
+    <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-top: 20px;">
+        <strong>Error:</strong> {{error}}
+    </div>
+{{/if}}
